@@ -55,28 +55,28 @@ print("Welcome to 540!")
 ##     xlab="X-axis label", ylab="y-axix label",
 ##     xlim=c(xmin, xmax), ylim=c(ymin, ymax)) 
 
-country <- "Liberia"
+#country <- "Liberia"
 
-x <- eval(parse(text=paste("ebola$Day", country, sep = "_")))
-y <- eval(parse(text=paste("ebola$Cases", country, sep = "_")))
+#x <- eval(parse(text=paste("ebola$Day", country, sep = "_")))
+#y <- eval(parse(text=paste("ebola$Cases", country, sep = "_")))
 
 #x <- ebola$Day_Liberia
 #y <- ebola$Cases_Liberia
 
-xlabel <- paste("number of days from",oldestDate,"to",mostRecentDate,"\n")
-ylabel <- "number of cases"
+#xlabel <- paste("number of days from",oldestDate,"to",mostRecentDate,"\n")
+#ylabel <- "number of cases"
 
 #print( xlabel )
 #print( ylabel )
 
-xmin <- 0
-xmax <- x[1]
+#xmin <- 0
+#xmax <- x[1]
 
-ymin <- 0
-ymax <- y[1]
+#ymin <- 0
+#ymax <- y[1]
 
-title <- paste("Spread of ebola virus in",country)
-subtitle <- paste(ymax,"persons were contaminated in",xmax,"days")
+#title <- paste("Spread of ebola virus in",country)
+#subtitle <- paste(ymax,"persons were contaminated in",xmax,"days")
 
-plot(x, y, main=title, sub=subtitle, xlab=xlabel, ylab=ylabel,
-     xlim=c(xmin, xmax), ylim=c(ymin, ymax))
+#plot(x, y, main=title, sub=subtitle, xlab=xlabel, ylab=ylabel,
+#     xlim=c(xmin, xmax), ylim=c(ymin, ymax))
