@@ -53,7 +53,7 @@
 #goodTimePoints <- ! NATimePoints
 
 #days  <- days[goodTimePoints]  
-#daysxaxis2 = as.integer(factor(days))
+#daysxaxis = as.integer(factor(days))
 #cases <- cases[goodTimePoints]
 
 #print( days )
