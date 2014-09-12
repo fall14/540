@@ -3,10 +3,10 @@
 ## output: graph of ebola spread
 ## TODO: describe other actions
 
-print("Welcome to 540!")
+#print("Welcome to 540!")
 
 ## set your working directory to whatever directory you want
-setwd("/Users/wk/Documents/RworkingDirectory")
+# setwd("/Users/wk/Documents/RworkingDirectory")
 
 ## define the URL where the ebola data are located
 URL <- "https://raw.githubusercontent.com/cmrivers/ebola/master/country_timeseries.csv"
@@ -16,10 +16,10 @@ URL <- "https://raw.githubusercontent.com/cmrivers/ebola/master/country_timeseri
 ebolaFileName = "140904.ebolaTimeSeries.csv" 
 
 ## copy the remote ebola data to your local computer
-download.file(URL, destfile = ebolaFileName, method="curl")
+#download.file(URL, destfile = ebolaFileName, method="curl")
 
 ## read the ebola data and load it into a variable called 'ebola'
-ebola <- read.csv( ebolaFileName )
+ebola <- read.csv("~/R/country_timeseries.txt" )
 
 ## show the ebola data frame in the R console
 # print( ebola )
@@ -34,20 +34,40 @@ ebola <- read.csv( ebolaFileName )
 ## [7] "Cases_Nigeria"      "Deaths_Guinea"      "Deaths_Liberia"    
 ## [10] "Deaths_SierraLeone" "Deaths_Nigeria" 
 
-# print( head(ebola[1]) )
-# print( head(ebola[2]) )
+print( head(ebola[1]) )
+print( head(ebola[2]) )
 
-# print( head(ebola$Date) )
-# print( head(ebola$Day_Liberia) )
+print( head(ebola$Date) )
+print( head(ebola$Day_Liberia) )
 
-# print( tail(ebola$Date) )
-# print( tail(ebola$Day_Liberia) )
+print( tail(ebola$Date) )
+print( tail(ebola$Day_Liberia) )
 
-country <- "Liberia"
+dayCountry <- "Liberia"
+casesCountry <- "Nigeria"
 
-days  <- eval(parse(text=paste("ebola$Day", country, sep="_")))
-cases <- eval(parse(text=paste("ebola$Cases", country, sep="_")))
+days  <- eval(parse(text=paste("ebola$Day", casesCountry, sep="_")))
+cases <- eval(parse(text=paste("ebola$Cases", dayCountry, sep="_")))
 
+NATimePoints <- is.na( cases )
+goodTimePoints <- ! NATimePoints
+
+days  <- days[goodTimePoints]
+cases <- cases[goodTimePoints]
+
+print( days )
+print( cases )
+
+print( mostRecentDate )
+print( oldestDate )
+
+numDays <- length(days)
+
+mostRecentDate <- ebola$Date[1]
+oldestDate <- ebola$Date[numDays]
+
+print( mostRecentDate )
+print( oldestDate )
 mostRecentDate <- head(ebola$Date,1)
 oldestDate <- tail(ebola$Date,1)
 
@@ -63,4 +83,4 @@ ymax <- cases[1]
 title <- paste("Spread of ebola virus in",country)
 subtitle <- paste(ymax,"persons were contaminated in",xmax,"days")
 
-plot(days, cases, main=title, sub=subtitle, xlab=xlabel, ylab=ylabel)
+#plot(days, cases, main=title, sub=subtitle, xlab=xlabel, ylab=ylabel)
