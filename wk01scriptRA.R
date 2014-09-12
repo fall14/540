@@ -46,8 +46,8 @@ print( tail(ebola$Day_Liberia) )
 dayCountry <- "Liberia"
 casesCountry <- "Nigeria"
 
-days  <- eval(parse(text=paste("ebola$Day", casesCountry, sep="_")))
-cases <- eval(parse(text=paste("ebola$Cases", dayCountry, sep="_")))
+days  <- eval(parse(text=paste("ebola$Day")))
+cases <- eval(parse(text=paste("ebola$Cases", casesCountry, sep="_")))
 
 NATimePoints <- is.na( cases )
 goodTimePoints <- ! NATimePoints
@@ -56,20 +56,19 @@ days  <- days[goodTimePoints]
 cases <- cases[goodTimePoints]
 
 print( days )
-print( cases )
-
-print( mostRecentDate )
-print( oldestDate )
+print(  "dates")
+print( ebola$Date )
 
 numDays <- length(days)
+days <- days - days[numDays]
 
 mostRecentDate <- ebola$Date[1]
 oldestDate <- ebola$Date[numDays]
 
 print( mostRecentDate )
 print( oldestDate )
-mostRecentDate <- head(ebola$Date,1)
-oldestDate <- tail(ebola$Date,1)
+#mostRecentDate <- head(ebola$Date,1)
+#oldestDate <- tail(ebola$Date,1)
 
 print( mostRecentDate )
 print( oldestDate )
@@ -80,7 +79,7 @@ ylabel <- "number of cases"
 xmax <- days[1]
 ymax <- cases[1]
 
-title <- paste("Spread of ebola virus in",country)
+title <- paste("Spread of ebola virus in",casesCountry)
 subtitle <- paste(ymax,"persons were contaminated in",xmax,"days")
 
-#plot(days, cases, main=title, sub=subtitle, xlab=xlabel, ylab=ylabel)
+plot(days, cases, main=title, sub=subtitle, xlab=xlabel, ylab=ylabel)
