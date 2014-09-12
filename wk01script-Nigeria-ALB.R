@@ -53,11 +53,11 @@
 #goodTimePoints <- ! NATimePoints
 
 #days  <- days[goodTimePoints]  
-#days2 = as.integer(factor(days))
+#daysxaxis = as.integer(factor(days))
 #cases <- cases[goodTimePoints]
 
 #print( days )
-#print( days2 )
+#print( daysxaxis )
 #print( cases )
 
 #numDays <- length(days)
@@ -69,7 +69,6 @@
 #print( mostRecentDate )
 #print( oldestDate )
 
-
 #xlabel <- paste("\n","number of days from",oldestDate,"to",mostRecentDate)
 #ylabel <- "number of cases"
 
@@ -79,4 +78,4 @@
 #title <- paste("Spread of ebola virus in",dayCountry)
 #subtitle <- paste(ymax,peopleCountry,"were contaminated in",xmax,"days")
 
-#plot(days2, cases, col="red", main=title, sub=subtitle, xlab=xlabel, ylab=ylabel)
+#plot(daysxaxis, cases, col="red", main=title, sub=subtitle, xlab=xlabel, ylab=ylabel)
