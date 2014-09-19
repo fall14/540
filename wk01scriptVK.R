@@ -75,7 +75,7 @@ print( dates )
 mostRecentDate <- head(dates,1)
 oldestDate <- tail(dates,1)
 
-print( mostRecentDate )
+print( paste("most recent date:",mostRecentDate) )
 print( oldestDate )
 
 xlabel <- paste("number of days from",oldestDate,"to",mostRecentDate,"\n")
